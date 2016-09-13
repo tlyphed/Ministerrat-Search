@@ -120,7 +120,7 @@ public class MainController {
         }
     }
 
-    private void notifyChange(){
+    private synchronized void notifyChange(){
         for(Session session : foundSessions.values()){
             Optional<TreeItem<Treeable>> optionalItem = treeRoot.getChildren().stream().filter(t -> t.getValue() == session).findAny();
             TreeItem<Treeable> item;
